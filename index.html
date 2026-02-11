@@ -80,7 +80,7 @@
       y no hay nadie con quien quiera compartir este momento tan especial.
     </p>
 
-    <img src="foto.jpg" alt="Nosotros" style="width:100%; border-radius:15px; margin:15px 0; box-shadow:0 8px 20px rgba(0,0,0,0.25);" />
+    <img src="./foto.jpg" alt="Nosotros" style="width:100%; border-radius:15px; margin:15px 0; box-shadow:0 8px 20px rgba(0,0,0,0.25);" />
 
     <h2>¿Quieres ser mi San Valentín? 💘</h2>
 
@@ -92,14 +92,7 @@
 
   <script>
     function playMusic() {
-      document.getElementById('musicBtn').style.display = 'none';
-      const iframe = document.createElement('iframe');
-      iframe.width = '100%';
-      iframe.height = '120';
-      iframe.style.borderRadius = '15px';
-      iframe.src = 'https://www.youtube.com/embed/Yn4n7mWgMcY?autoplay=1';
-      iframe.allow = 'autoplay';
-      document.querySelector('.card').prepend(iframe);
+      window.open('https://www.youtube.com/watch?v=Yn4n7mWgMcY', '_blank');
     }
 
     function sayYes() {
