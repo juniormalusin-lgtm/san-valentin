@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Quieres ser mi San Valentín?</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff8fcf, #ffb3da);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 360px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    .no {
+      background: #ccc;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.7; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Mi Zoé hermosa 💖</h1>
+    <p>Desde que llegaste a mi vida todo es más bonito, y no hay nadie con quien quiera compartir este momento tan especial.</p>
+    <img src="foto.jpg" alt="Nosotros">
+    <p><strong>¿Quieres ser mi San Valentín?</strong></p>
+
+    <div class="buttons">
+      <button class="yes" onclick="acepta()">Sí 💘</button>
+      <button class="no" onclick="rechaza()">No 🙈</button>
+    </div>
+  </div>
+
+  <audio id="musica" src="https://archive.org/download/gustavo-cerati-puente/Gustavo%20Cerati%20-%20Puente.mp3"></audio>
+
+  <script>
+    const musica = document.getElementById('musica');
+
+    function acepta() {
+      musica.play();
+      document.getElementById('card').innerHTML = `
+        <h1>💖 Sabía que dirías que sí 💖</h1>
+        <p>Eres lo más lindo que me pasó. Gracias por existir.</p>
+        <p>Te amo 🌸</p>
+      `;
+    }
+
+    function rechaza() {
+      document.getElementById('card').innerHTML = `
+        <h1>🥺</h1>
+        <p>Está bien… igual siempre te voy a querer 💔</p>
+      `;
+    }
+
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '💗';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+  </script>
+
+</body>
+</html>
